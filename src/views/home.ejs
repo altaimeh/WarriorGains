@@ -1,0 +1,96 @@
+<%- include('partials/header') %>
+
+<div class="slider-container">
+  <div
+    class="slide active"
+    style="
+      background-image: url('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80');
+    "
+  >
+  </div>
+  <h1>Warrior Gains!</h1>
+  <a class="btn btn-light btn-lg" href="/register" role="button" id="register-btn">Register</a>
+        
+  <a class="btn btn-dark btn-lg" href="/login" role="button" id="login-btn">Login</a>
+</div>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /*This contains styling for the body and resizing capabilities*/
+  body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background-position: center center;
+    background-size: cover;
+    transition: 0.4s;
+  }
+
+  /*This includes styling for background and resizing capabilities*/
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+  }
+
+  /*This includes styles for Warrior Gains, and box surrounding text for resizing functionalities*/
+  .slider-container {
+    height: 70vh;
+    width: 70vw;
+    position: relative;
+    overflow: hidden;
+    font-size: 2rem;
+    font-weight: 700;
+    color: forestgreen;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    transform: skew(-10deg); 
+    text-align: center;
+    
+  }
+
+  /*This contains styling for register and login buttons*/
+  .slider-container a {
+    color: darkgrey;
+    font-family: sans-serif;
+    background-color: darkgreen;
+    border-radius: 12px;
+    text-decoration: none;
+    padding-left: 10px;
+    box-shadow: 1px 1px 1px black;
+  }
+
+</style>
+
+<script>
+  const body = document.body
+  const slides = document.querySelectorAll('.slide')
+
+  let activeSlide = 0
+
+  setBgToBody()
+
+  /*Used JavaScript to set background image to cover screen*/ 
+  function setBgToBody() {
+    body.style.backgroundImage = slides[activeSlide].style.backgroundImage
+  }
+
+</script>
+
+<%- include('partials/footer') %>
